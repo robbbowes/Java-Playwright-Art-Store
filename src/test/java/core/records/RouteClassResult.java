@@ -1,4 +1,6 @@
 package core.records;
 
-public class RouteClassResult {
+import pages.abstractions.CucumberPage;
+
+public record RouteClassResult(PageRouteInfo routeInfo, CucumberPage pageClass) {
 }

@@ -1,4 +1,7 @@
 package core.records;
 
-public class CurrentTabInfo {
+import com.microsoft.playwright.Page;
+import pages.abstractions.CucumberPage;
+
+public record CurrentTabInfo(Page currentTab, CucumberPage currentTabClass) {
 }

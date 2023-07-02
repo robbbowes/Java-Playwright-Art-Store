@@ -1,4 +1,6 @@
 package core.records;
 
-public class PageRouteInfo {
+import java.util.regex.Pattern;
+
+public record PageRouteInfo(String route, Pattern regexPattern) {
 }
