@@ -4,6 +4,7 @@ import com.microsoft.playwright.Locator;
 import core.config.TestContext;
 import core.utils.PageElementLocator;
 import io.cucumber.java.en.When;
+import steps.Wording;
 
 public class Select {
 
@@ -13,7 +14,7 @@ public class Select {
         this.testContext = testContext;
     }
 
-    @When("I select {string} in the {string} dropdown")
+    @When(Wording.Actions.Select.SELECT)
     public void select(String text, String locatorKey) {
         Locator locator = PageElementLocator.getLocator(this.testContext, locatorKey);
         locator.selectOption(text);

@@ -1,42 +1,29 @@
-package steps.actions;
+package steps.assertions;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.assertions.PlaywrightAssertions;
 import core.config.TestContext;
 import core.utils.PageElementLocator;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import steps.Wording;
 
-public class Checkbox {
+public class ElementChecked {
 
     private final TestContext testContext;
 
-    public Checkbox(TestContext testContext) {
+    public ElementChecked(TestContext testContext) {
         this.testContext = testContext;
     }
 
-    @When("I check the {string} checkbox")
-    public void check(String locatorKey) {
-        Locator locator = PageElementLocator.getLocator(this.testContext, locatorKey);
-        locator.check();
-    }
-
-    @When("I uncheck the {string} checkbox")
-    public void uncheck(String locatorKey) {
-        Locator locator = PageElementLocator.getLocator(this.testContext, locatorKey);
-        locator.uncheck();
-    }
-
-    @Then("the {string} checkbox is checked")
+    @Then(Wording.Assertions.ElementChecked.IS_CHECKED)
     public void isChecked(String locatorKey) {
         Locator locator = PageElementLocator.getLocator(this.testContext, locatorKey);
         PlaywrightAssertions.assertThat(locator).isChecked();
     }
 
-    @Then("the {string} checkbox is unchecked")
+    @Then(Wording.Assertions.ElementChecked.IS_UNCHECKED)
     public void isUnchecked(String locatorKey) {
         Locator locator = PageElementLocator.getLocator(this.testContext, locatorKey);
         PlaywrightAssertions.assertThat(locator).not().isChecked();
     }
-
 }

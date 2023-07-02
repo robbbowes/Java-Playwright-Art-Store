@@ -1,21 +1,22 @@
-package steps.filter;
+package steps.parent;
 
 import com.microsoft.playwright.Locator;
 import core.config.TestContext;
 import core.utils.PageElementLocator;
 import io.cucumber.java.en.Then;
 import org.testng.Assert;
+import steps.Wording;
 
-public class LocatorFilter {
+public class SetParentElement {
 
     private final TestContext testContext;
 
-    public LocatorFilter(TestContext testContext) {
+    public SetParentElement(TestContext testContext) {
         this.testContext = testContext;
     }
 
-    @Then("a {string} with the {string} {string} should be displayed")
-    public void select(String parentLocatorKey, String childLocatorKey, String text) {
+    @Then(Wording.Parent.SET_VARIABLE)
+    public void select(String parentLocatorKey, String childLocatorKey, String text, String elementPseudonym) {
         Locator parentLocator = PageElementLocator.getLocator(this.testContext, parentLocatorKey);
         Locator childLocator = PageElementLocator.getLocator(this.testContext, childLocatorKey);
 
@@ -24,7 +25,7 @@ public class LocatorFilter {
         );
         Assert.assertNotEquals(matchingLocator.count(), 0);
 
-        this.testContext.getScreen().getLocatorHistory().put(parentLocatorKey, matchingLocator);
+        this.testContext.getScreen().getLocatorHistory().put(elementPseudonym, matchingLocator);
     }
 
 }

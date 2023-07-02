@@ -6,6 +6,7 @@ import core.utils.PageElementLocator;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
+import steps.Wording;
 
 public class Click {
 
@@ -15,14 +16,14 @@ public class Click {
         this.testContext = testContext;
     }
 
-    @When("I click the {string}")
+    @When(Wording.Actions.Click.CLICK)
     public void clickThe(String locatorKey) {
         Locator locator = PageElementLocator.getLocator(this.testContext, locatorKey);
         locator.click();
     }
 
-    @Then("on the {string} I click on the {string}")
-    public void valueWithTextIsVisible(String locatorLookupKey, String childLocatorKey) {
+    @Then(Wording.Actions.Click.NESTED_CLICK)
+    public void valueWithTextIsVisible(String childLocatorKey, String locatorLookupKey) {
         Locator parentLocator = this.testContext.getScreen().getLocatorHistory().get(locatorLookupKey);
         Assert.assertNotNull(String.format("No locator found for '%s'", locatorLookupKey));
 

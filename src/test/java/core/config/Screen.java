@@ -5,7 +5,7 @@ import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import core.records.CurrentTabInfo;
-import pages.HomePage;
+import pages.ArtPage;
 import pages.abstractions.CucumberPage;
 
 import java.util.HashMap;
@@ -21,7 +21,7 @@ public class Screen {
     public Screen(Browser browser, BrowserContext context, Page currentTab) {
         this.browser = browser;
         this.context = context;
-        this.currentTabInfo = new CurrentTabInfo(currentTab, new HomePage());
+        this.currentTabInfo = new CurrentTabInfo(currentTab, new ArtPage());
         this.locatorHistory = new HashMap<>();
     }
 

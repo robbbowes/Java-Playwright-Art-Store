@@ -48,15 +48,15 @@ public class NavigationBehaviour {
     }
 
     private static RouteClassResult getResult(Map<CucumberPage, PageRouteInfo> routeMappings, String pageId) {
+        final String sanitisedPageId = pageId.replaceAll(RegexPatterns.ONLY_SPACES.pattern(), "");
         final RouteClassResult routeClassResult = routeMappings.keySet().stream()
-                .filter(pageClass -> pageId.equals(pageClass.getClass().getSimpleName()))
+                .filter(pageClass -> sanitisedPageId.equals(pageClass.getClass().getSimpleName()))
                 .map(pageClass -> new RouteClassResult(routeMappings.get(pageClass), pageClass))
                 .findFirst()
                 .orElse(null);
 
-        Assert.assertNotNull(routeClassResult, String.format("Route info and class not found for page with id: '%s'", pageId));
+        Assert.assertNotNull(routeClassResult, String.format("Route info and class not found for page with id: '%s'", sanitisedPageId));
         return routeClassResult;
-
     }
 
 }
