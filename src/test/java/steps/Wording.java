@@ -78,7 +78,7 @@ public class Wording {
     }
 
     public static class SetVariable {
-        public static final String SET_ELEMENT_PSEUDONYM = "a {string} with the {string} {string} should be displayed - henceforth referred to as {string}";
+        public static final String SET_ELEMENT_PSEUDONYM = "a {string} [{string}] with the {string} {string} should be displayed";
     }
 
 

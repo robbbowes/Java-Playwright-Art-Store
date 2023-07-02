@@ -16,7 +16,7 @@ public class SetElementPseudonym {
     }
 
     @Then(Wording.SetVariable.SET_ELEMENT_PSEUDONYM)
-    public void select(String parentLocatorKey, String childLocatorKey, String text, String elementPseudonym) {
+    public void select(String parentLocatorKey, String elementPseudonym, String childLocatorKey, String text) {
         Locator parentLocator = PageElementLocator.getLocator(this.testContext, parentLocatorKey);
         Locator childLocator = PageElementLocator.getLocator(this.testContext, childLocatorKey);
 
