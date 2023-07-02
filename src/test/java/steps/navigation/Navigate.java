@@ -8,26 +8,27 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.testng.Assert;
 import pages.partials.NavigationBar;
+import steps.Wording;
 
-public class Navigation {
+public class Navigate {
 
     private final TestContext testContext;
 
-    public Navigation(TestContext testContext) {
+    public Navigate(TestContext testContext) {
         this.testContext = testContext;
     }
 
-    @Given("I am on the {string}")
+    @Given(Wording.Navigate.Navigation.ON_PAGE)
     public void onPage(String pageId) {
         NavigationBehaviour.navigateToPage(this.testContext, pageId);
     }
 
-    @Then("I am redirected to the {string}")
+    @Then(Wording.Navigate.Navigation.REDIRECTED_TO_PAGE)
     public void redirected(String pageId) {
         NavigationBehaviour.waitForCorrectPage(this.testContext, pageId);
     }
 
-    @Then("I click {string} in the navigation bar")
+    @Then(Wording.Navigate.Navigation.CLICK_NAVIGATION_BAR)
     public void navbar(String locatorKey) {
         final Page page = this.testContext.getScreen().getCurrentTabInfo().currentTab();
         Locator locator = NavigationBar.getLocators(page).getOrDefault(locatorKey, null);

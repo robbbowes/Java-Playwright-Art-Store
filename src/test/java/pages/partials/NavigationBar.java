@@ -11,8 +11,8 @@ public class NavigationBar  {
     public static Map<String, Locator> getLocators(Page page) {
         return Map.ofEntries(
                 Map.entry("My Account", page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("My Account"))),
-                Map.entry("Art", page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("My Account"))),
-                Map.entry("Checkout", page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("My Account")))
+                Map.entry("Art", page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Art"))),
+                Map.entry("Checkout", page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Checkout")))
         );
     }
 

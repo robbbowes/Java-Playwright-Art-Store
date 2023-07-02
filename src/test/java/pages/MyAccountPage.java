@@ -10,7 +10,9 @@ public class MyAccountPage implements CucumberPage {
 
     @Override
     public Map<String, Locator> getLocators(Page page) {
-        return null;
+        return Map.ofEntries(
+
+        );
     }
 
 }

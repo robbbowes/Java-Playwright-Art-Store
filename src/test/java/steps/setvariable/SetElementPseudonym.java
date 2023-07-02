@@ -1,4 +1,4 @@
-package steps.parent;
+package steps.setvariable;
 
 import com.microsoft.playwright.Locator;
 import core.config.TestContext;
@@ -7,15 +7,15 @@ import io.cucumber.java.en.Then;
 import org.testng.Assert;
 import steps.Wording;
 
-public class SetParentElement {
+public class SetElementPseudonym {
 
     private final TestContext testContext;
 
-    public SetParentElement(TestContext testContext) {
+    public SetElementPseudonym(TestContext testContext) {
         this.testContext = testContext;
     }
 
-    @Then(Wording.Parent.SET_VARIABLE)
+    @Then(Wording.SetVariable.SET_ELEMENT_PSEUDONYM)
     public void select(String parentLocatorKey, String childLocatorKey, String text, String elementPseudonym) {
         Locator parentLocator = PageElementLocator.getLocator(this.testContext, parentLocatorKey);
         Locator childLocator = PageElementLocator.getLocator(this.testContext, childLocatorKey);

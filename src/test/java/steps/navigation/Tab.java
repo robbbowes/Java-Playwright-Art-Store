@@ -10,6 +10,7 @@ import core.utils.RegexPatterns;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.abstractions.CucumberPage;
+import steps.Wording;
 
 public class Tab {
 
@@ -19,7 +20,7 @@ public class Tab {
         this.testContext = testContext;
     }
 
-    @When("^I switch to the \"([0-9]+st|[0-9]+nd|[0-9]+rd|[0-9]+th)\" tab$")
+    @When(Wording.Navigate.Tab.SWITCH_TAB)
     public void onPage(String tabNumber) {
         final String numberString = tabNumber.replaceAll(RegexPatterns.ONLY_NUMBERS.pattern(), "");
         final int tabIndex = Integer.parseInt(numberString) - 1;
@@ -32,7 +33,7 @@ public class Tab {
         this.testContext.getScreen().setCurrentTabInfo(currentTab, currentTabClass);
     }
 
-    @Then("I click the {string} the {string} page is opened in a new tab")
+    @Then(Wording.Navigate.Tab.PAGE_OPENED_IN_NEW_TAB)
     public void newTab(String locatorKey, String pageId) {
         final Screen screen = this.testContext.getScreen();
         final Page newTab = screen.getCurrentTabInfo().currentTab().waitForPopup(()
