@@ -21,7 +21,7 @@ public class TestContext {
     private String baseUrl;
 
     public void init() {
-        final Properties driverProperties = PropertiesReader.read("config/environment.properties");
+        final Properties driverProperties = PropertiesReader.read("environment.properties");
         browserName = driverProperties.getProperty("browser");
         baseUrl = driverProperties.getProperty("url");
         mappings = PageMappings.getMappings();

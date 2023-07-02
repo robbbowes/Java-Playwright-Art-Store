@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public class PageMappings {
 
     private static final String BASE_URL = PropertiesReader
-            .read("config/environment.properties")
+            .read("environment.properties")
             .getProperty("url");
 
     private static final Map<CucumberPage, PageRouteInfo> MAP = Map.ofEntries(
