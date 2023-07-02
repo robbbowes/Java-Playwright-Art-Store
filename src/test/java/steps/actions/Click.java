@@ -1,7 +1,9 @@
 package steps.actions;
 
+import com.aventstack.extentreports.Status;
 import com.microsoft.playwright.Locator;
 import core.config.TestContext;
+import core.reports.ExtentListeners;
 import core.utils.PageElementLocator;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -24,6 +26,8 @@ public class Click {
 
     @Then(Wording.Actions.Click.NESTED_CLICK)
     public void valueWithTextIsVisible(String childLocatorKey, String locatorLookupKey) {
+        ExtentListeners.getTest().log(Status.INFO, "Testy test");
+
         Locator parentLocator = this.testContext.getScreen().getLocatorHistory().get(locatorLookupKey);
         Assert.assertNotNull(String.format("No locator found for '%s'", locatorLookupKey));
 

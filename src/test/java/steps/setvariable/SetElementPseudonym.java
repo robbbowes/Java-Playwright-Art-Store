@@ -1,7 +1,9 @@
 package steps.setvariable;
 
+import com.aventstack.extentreports.Status;
 import com.microsoft.playwright.Locator;
 import core.config.TestContext;
+import core.reports.ExtentListeners;
 import core.utils.PageElementLocator;
 import io.cucumber.java.en.Then;
 import org.testng.Assert;
@@ -16,7 +18,7 @@ public class SetElementPseudonym {
     }
 
     @Then(Wording.SetVariable.SET_ELEMENT_PSEUDONYM)
-    public void select(String parentLocatorKey, String elementPseudonym, String childLocatorKey, String text) {
+    public void setVariable(String parentLocatorKey, String elementPseudonym, String childLocatorKey, String text) {
         Locator parentLocator = PageElementLocator.getLocator(this.testContext, parentLocatorKey);
         Locator childLocator = PageElementLocator.getLocator(this.testContext, childLocatorKey);
 
